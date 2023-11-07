@@ -1,0 +1,33 @@
+<app-header class="header"></app-header>
+
+<div class="contacts-container">
+  <div class="search-container">
+    <div class="search-input-wrapper">
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Search Contacts"
+        (input)="filterContacts($event)"
+      />
+      <fa-icon
+        [icon]="faMagnifyingGlass"
+        size="lg"
+        class="search-icon"
+      ></fa-icon>
+    </div>
+  </div>
+
+  <ul class="contacts-list">
+    <li class="contact" *ngFor="let contact of filteredContacts">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1200px-User-avatar.svg.png"
+        alt="Contact Avatar"
+      />
+      <div class="contact-info">
+        <span class="contact-name">{{ contact.name }}</span>
+        <p class="contact-email">Email: {{ contact.email }}</p>
+        <p class="contact-phone">Phone: {{ contact.phone }}</p>
+      </div>
+    </li>
+  </ul>
+</div>
