@@ -59,6 +59,7 @@ $primary: mat-color($app-primary);
   width: 100%;
   align-items: center;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .contact-info p {
@@ -88,10 +89,15 @@ $primary: mat-color($app-primary);
     justify-content: space-between;
   }
   .img-container {
-    width: 60px;
+    width: 40px;
     margin-left: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  .contact img {
+    width: 30px;
+    height: 30px;
+    margin: 0;
   }
 }
