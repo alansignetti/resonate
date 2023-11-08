@@ -10,6 +10,7 @@ import { Contact } from '../../interfaces/contact-interface';
 export class ContactListComponent implements OnInit {
   public contacts: Contact[] = [];
   public filteredContacts: Contact[] = [];
+  public panelOpenState = false;
 
   constructor(private contactService: ContactService) {}
 

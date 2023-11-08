@@ -8,25 +8,57 @@
 
   <ul class="contacts-list">
     <li class="contact" *ngFor="let contact of filteredContacts">
-      <div class="img-container">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1200px-User-avatar.svg.png"
-          alt="Contact Avatar"
-        />
-      </div>
-      <div class="contact-info-container">
-        <h2 class="contact-name">{{ contact.name }}</h2>
-        <div class="contact-info">
-          <p class="contact-phone">
-            <mat-icon class="contact-info-icon">phone</mat-icon
-            >{{ contact.phone }}
-          </p>
-          <p class="contact-email">
-            <mat-icon class="contact-info-icon">email</mat-icon>
-            {{ contact.email }}
-          </p>
-        </div>
-      </div>
+      <mat-accordion>
+        <mat-expansion-panel
+          class="contact-main-panel"
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false"
+        >
+          <mat-expansion-panel-header class="mat-expansion-panel-header">
+            <mat-panel-title>
+              <div class="img-container">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1200px-User-avatar.svg.png"
+                  alt="Contact Avatar"
+                />
+              </div>
+              <div class="contact-info-container">
+                <h2 class="contact-name">{{ contact.name }}</h2>
+                <div class="contact-info">
+                  <p class="contact-data">
+                    <mat-icon class="contact-info-icon">phone</mat-icon
+                    >{{ contact.phone }}
+                  </p>
+                  <p class="contact-data">
+                    <mat-icon class="contact-info-icon">person_pin</mat-icon>
+                    {{ contact.username }}
+                  </p>
+                  <p class="contact-data">
+                    <mat-icon class="contact-info-icon">email</mat-icon>
+                    {{ contact.email }}
+                  </p>
+                </div>
+              </div></mat-panel-title
+            >
+          </mat-expansion-panel-header>
+
+          <div class="additional-info">
+            <p class="contact-data">
+              <mat-icon class="contact-info-icon">home</mat-icon
+              >{{ contact.address.suite }} {{ contact.address.street }},
+              {{ contact.address.city }} ({{ contact.address.zipcode }})
+            </p>
+            <p class="contact-data">
+              <mat-icon class="contact-info-icon">business</mat-icon>
+              {{ contact.company.name }}
+            </p>
+            <p class="contact-data">
+              <mat-icon class="contact-info-icon">website</mat-icon>
+              {{ contact.website }}
+            </p>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
     </li>
   </ul>
 </div>

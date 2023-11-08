@@ -17,20 +17,23 @@ $primary: mat-color($app-primary);
   list-style: none;
   padding: 0;
 }
-
+.contact-main-panel {
+  background-color: #f8f8f8;
+}
 .contact {
-  display: flex;
   width: 100%;
-  align-items: center;
   margin-bottom: 10px;
-  background-color: #dee2e6;
-  border-radius: 20px;
-  border: 1px solid $primary;
 }
 
-.contact:hover {
-  background-color: #f0f1f2;
-  border: 2px solid $primary;
+.contact-main-panel {
+  height: fit-content;
+}
+
+.mat-expansion-panel-header {
+  padding: 0;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  height: fit-content;
 }
 
 .img-container {
@@ -56,9 +59,9 @@ $primary: mat-color($app-primary);
 }
 .contact-info {
   display: flex;
-  width: 100%;
+  width: 90%;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
@@ -68,17 +71,23 @@ $primary: mat-color($app-primary);
 
 .contact-info-icon {
   margin: 0;
+  margin-right: 3px;
   bottom: -6px;
   position: relative;
 }
-
+.additional-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: center;
+  flex-direction: column;
+}
 .contact-name {
   font-size: 18px;
   font-weight: bold;
 }
 
-.contact-email,
-.contact-phone {
+.contact-data {
   font-size: 14px;
   color: #666;
 }
@@ -88,9 +97,12 @@ $primary: mat-color($app-primary);
     flex-wrap: wrap;
     justify-content: space-between;
   }
+  .contact-info {
+    justify-content: space-around;
+  }
   .img-container {
-    width: 40px;
-    margin-left: 20px;
+    width: 30px;
+    margin-left: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;

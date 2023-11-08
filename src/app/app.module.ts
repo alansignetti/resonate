@@ -14,9 +14,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
-  declarations: [AppComponent, ContactListComponent, HeaderComponent, SearchBarComponent],
+  declarations: [
+    AppComponent,
+    ContactListComponent,
+    HeaderComponent,
+    SearchBarComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,6 +35,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     MatFormFieldModule,
     ReactiveFormsModule,
     FormsModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
