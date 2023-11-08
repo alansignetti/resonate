@@ -1,20 +1,18 @@
 <app-header class="header"></app-header>
-
 <div class="contacts-container">
   <div class="search-container">
-    <div class="search-input-wrapper">
-      <input
-        type="text"
-        class="search-input"
-        placeholder="Search Contacts"
-        (input)="filterContacts($event)"
-      />
-      <fa-icon
-        [icon]="faMagnifyingGlass"
-        size="lg"
-        class="search-icon"
-      ></fa-icon>
-    </div>
+    <form class="search-form" [formGroup]="searchForm">
+      <mat-form-field class="search-input">
+        <mat-label>Search Contacts</mat-label>
+        <input
+          type="search"
+          formControlName="contactSearched"
+          matInput
+          placeholder="Alan"
+        />
+        <mat-icon class="search-icon" matSuffix>search</mat-icon>
+      </mat-form-field>
+    </form>
   </div>
 
   <ul class="contacts-list">

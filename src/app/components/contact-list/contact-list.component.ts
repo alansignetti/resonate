@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../../services/contact.service';
 import { Contact } from '../../interfaces/contact-interface';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-list',
@@ -12,8 +13,18 @@ export class ContactListComponent implements OnInit {
   public contacts: Contact[] = [];
   public filteredContacts: Contact[] = [];
   public faMagnifyingGlass = faMagnifyingGlass;
+  public searchForm: FormGroup = new FormGroup({
+    contactSearched: new FormControl(''),
+  });
 
-  constructor(private contactService: ContactService) {}
+  constructor(private contactService: ContactService, private fb: FormBuilder) {
+    this.initForm();
+    this.searchForm
+      .get('contactSearched')
+      ?.valueChanges.subscribe((searchTerm: string) => {
+        this.filterContacts(searchTerm);
+      });
+  }
 
   public ngOnInit() {
     this.contactService.getContacts().subscribe((response: Contact[]) => {
@@ -23,8 +34,7 @@ export class ContactListComponent implements OnInit {
   }
 
   // Filter function
-  public filterContacts(searchEvent: any) {
-    const searchTerm = searchEvent.target.value;
+  public filterContacts(searchTerm: string) {
     if (searchTerm) {
       this.filteredContacts = this.contacts.filter((contact) => {
         return (
@@ -35,5 +45,11 @@ export class ContactListComponent implements OnInit {
     } else {
       this.filteredContacts = [...this.contacts]; // If no search term is provided, display all contacts.
     }
+  }
+
+  private initForm() {
+    this.searchForm = this.fb.group({
+      contactSearched: [''],
+    });
   }
 }
