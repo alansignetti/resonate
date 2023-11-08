@@ -82,6 +82,11 @@ $primary: mat-color($app-primary);
   text-align: center;
   flex-direction: column;
 }
+
+.additional-info p {
+  margin: 0;
+}
+
 .contact-name {
   font-size: 18px;
   font-weight: bold;
