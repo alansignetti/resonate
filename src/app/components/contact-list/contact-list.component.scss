@@ -42,22 +42,20 @@
   display: flex;
   width: 100%;
   align-items: center;
-  // border: 1px solid #ddd;
-  border-bottom: 1px solid black;
   margin-bottom: 10px;
-  background-color: #fff;
+  background-color: #dee2e6;
+  border-radius: 20px;
 }
 
-.contacts-list:nth-child(4n + 1):nth-last-child(-n + 4),
-.contacts-list:nth-child(4n + 1):nth-last-child(-n + 4) ~ .contacts-list {
-  border: none;
+.contact:hover {
+  background-color: #f0f1f2;
 }
-
 .contact img {
   width: 50px;
   height: 50px;
-  border-radius: 50%;
+  border-radius: 40%;
   margin-right: 10px;
+  margin-left: 10px;
 }
 
 .contact-info {
@@ -67,7 +65,6 @@
 .contact-name {
   font-size: 18px;
   font-weight: bold;
-  margin-bottom: 5px;
 }
 
 .contact-email,
