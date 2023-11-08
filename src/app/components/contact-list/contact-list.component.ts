@@ -13,6 +13,7 @@ export class ContactListComponent implements OnInit {
   public contacts: Contact[] = [];
   public filteredContacts: Contact[] = [];
   public faMagnifyingGlass = faMagnifyingGlass;
+  // Reactive Forms combined with Angular Material
   public searchForm: FormGroup = new FormGroup({
     contactSearched: new FormControl(''),
   });
