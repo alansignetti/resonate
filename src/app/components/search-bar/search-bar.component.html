@@ -1,0 +1,12 @@
+<form class="search-form" [formGroup]="searchForm">
+  <mat-form-field class="search-input">
+    <mat-label>Search Contacts</mat-label>
+    <input
+      type="search"
+      formControlName="contactSearched"
+      matInput
+      placeholder="Alan"
+    />
+    <mat-icon class="search-icon" matSuffix>search</mat-icon>
+  </mat-form-field>
+</form>

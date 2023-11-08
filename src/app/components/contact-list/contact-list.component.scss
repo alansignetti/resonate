@@ -1,19 +1,11 @@
+@import "~@angular/material/theming";
+$app-primary: mat-palette($mat-blue);
+$primary: mat-color($app-primary);
+
 .search-container {
   width: 60%;
 }
-.search-form {
-  display: flex;
-  width: 100%;
-}
 
-.search-input {
-  flex: 1;
-  border: none;
-  outline: none;
-  font-size: 16px;
-  font-family: sans-serif;
-  color: #666;
-}
 .contacts-container {
   display: flex;
   flex-direction: column;
@@ -33,10 +25,19 @@
   margin-bottom: 10px;
   background-color: #dee2e6;
   border-radius: 20px;
+  border: 1px solid $primary;
 }
 
 .contact:hover {
   background-color: #f0f1f2;
+  border: 2px solid $primary;
+}
+
+.img-container {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .contact img {
   width: 50px;
@@ -46,8 +47,28 @@
   margin-left: 10px;
 }
 
-.contact-info {
+.contact-info-container {
+  display: flex;
+  width: 70%;
   flex-grow: 1;
+  flex-direction: column;
+  align-items: center;
+}
+.contact-info {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.contact-info p {
+  margin: 0;
+}
+
+.contact-info-icon {
+  margin: 0;
+  bottom: -6px;
+  position: relative;
 }
 
 .contact-name {
@@ -65,5 +86,12 @@
   .contacts-list {
     flex-wrap: wrap;
     justify-content: space-between;
+  }
+  .img-container {
+    width: 60px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }

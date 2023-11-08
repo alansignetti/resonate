@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../../services/contact.service';
 import { Contact } from '../../interfaces/contact-interface';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-list',
@@ -12,20 +10,8 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 export class ContactListComponent implements OnInit {
   public contacts: Contact[] = [];
   public filteredContacts: Contact[] = [];
-  public faMagnifyingGlass = faMagnifyingGlass;
-  // Reactive Forms combined with Angular Material
-  public searchForm: FormGroup = new FormGroup({
-    contactSearched: new FormControl(''),
-  });
 
-  constructor(private contactService: ContactService, private fb: FormBuilder) {
-    this.initForm();
-    this.searchForm
-      .get('contactSearched')
-      ?.valueChanges.subscribe((searchTerm: string) => {
-        this.filterContacts(searchTerm);
-      });
-  }
+  constructor(private contactService: ContactService) {}
 
   public ngOnInit() {
     this.contactService.getContacts().subscribe((response: Contact[]) => {
@@ -40,7 +26,8 @@ export class ContactListComponent implements OnInit {
       this.filteredContacts = this.contacts.filter((contact) => {
         return (
           contact.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          contact.phone.includes(searchTerm)
+          contact.phone.includes(searchTerm) ||
+          contact.email.toLowerCase().includes(searchTerm.toLowerCase())
         );
       });
     } else {
@@ -48,9 +35,7 @@ export class ContactListComponent implements OnInit {
     }
   }
 
-  private initForm() {
-    this.searchForm = this.fb.group({
-      contactSearched: [''],
-    });
+  public onSearchValueChanged(searchTerm: string) {
+    this.filterContacts(searchTerm);
   }
 }
