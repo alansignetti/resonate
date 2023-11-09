@@ -28,7 +28,8 @@ export class ContactListComponent implements OnInit {
         return (
           contact.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
           contact.phone.includes(searchTerm) ||
-          contact.email.toLowerCase().includes(searchTerm.toLowerCase())
+          contact.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          contact.username.toLowerCase().includes(searchTerm.toLowerCase())
         );
       });
     } else {

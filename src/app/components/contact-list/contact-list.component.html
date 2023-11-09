@@ -25,15 +25,15 @@
               <div class="contact-info-container">
                 <h2 class="contact-name">{{ contact.name }}</h2>
                 <div class="contact-info">
-                  <p class="contact-data">
+                  <p class="contact-data" id="phone-icon">
                     <mat-icon class="contact-info-icon">phone</mat-icon
                     >{{ contact.phone }}
                   </p>
-                  <p class="contact-data">
+                  <p class="contact-data" id="username-icon">
                     <mat-icon class="contact-info-icon">person_pin</mat-icon>
                     {{ contact.username }}
                   </p>
-                  <p class="contact-data">
+                  <p class="contact-data" id="email-icon">
                     <mat-icon class="contact-info-icon">email</mat-icon>
                     {{ contact.email }}
                   </p>
@@ -62,3 +62,5 @@
     </li>
   </ul>
 </div>
+
+<app-footer></app-footer>
